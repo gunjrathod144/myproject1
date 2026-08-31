@@ -1,1 +1,9 @@
-hello world
+name: CI
+on: push
+jobs:
+ build:
+  runs-on: ubuntu-latest
+    steps:
+      -uses: actions/checkout@v4
+    -run: eceho "Build started for $GITHUB_SHA"
+    -run: ls -ls
