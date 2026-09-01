@@ -11,4 +11,4 @@ jobs:
       - name: Deploy
         env:
           TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: echo "Deploying with token length: ${#TOKEN}"
+        run: echo "Deploying with token"
