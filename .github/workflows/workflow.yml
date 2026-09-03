@@ -1,4 +1,17 @@
-name: Deploy
+name: CI
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy
+        env:
+          TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: echo "Deploying with token length: ${#TOKEN}"name: Deploy
 on:
   workflow_dispatch:
     inputs:
