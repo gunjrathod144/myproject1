@@ -1,27 +1,21 @@
-name: CI
+name: Deploy
 
-on: push
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy
-        env:
-          TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        run: echo "Deploying with token length: ${#TOKEN}"name: Deploy
 on:
   workflow_dispatch:
     inputs:
       target:
-        description: "where to deploy"
+        description: "Where to deploy"
         type: choice
-        options: [staging, production]
+        options:
+          - staging
+          - production
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "Deploying to ${{ inputs.target }}"
+      - uses: actions/checkout@v4
+
+      - name: Deploy
+        run: echo "Deploying to ${{ inputs.target }}"
