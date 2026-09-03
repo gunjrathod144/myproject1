@@ -7,7 +7,6 @@ jobs:
       - uses: actions/checkout@v4
       - run: echo "Running Test"
   deploy:
-    needs: test
     runs-on: ubuntu-latest
     if: github.ref  ==  'refs/heads/main'
     steps:
