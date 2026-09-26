@@ -1,13 +1,9 @@
 name: CI
 on: push
 jobs:
-deploy:
-
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
+  build:
+      runs-on: ubuntu-latest
+   steps:
       - uses: actions/checkout@v4
-      - name: Deploy
-       env:
-       TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-       run: echo "Deploying to production"
+      - run: echo "build started for $GITHUB_SHA"
+      - run: ls -la
